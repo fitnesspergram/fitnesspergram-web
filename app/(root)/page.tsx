@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,11 +13,24 @@ export default function Home() {
           height={400}
           className="max-sm:w-[640px]"
         />
-        <Button variant="secondary" size="secondary" className="w-[300px]">
-          I am trainer
+
+        <Button
+          variant="secondary"
+          size="secondary"
+          className="w-[300px]"
+          asChild
+        >
+          {/* TODO: change this to login */}
+          <Link href="/trainer/sign-up">I am trainer</Link>
         </Button>
-        <Button variant="secondary" size="secondary" className="w-[300px]">
-          I am client
+        <Button
+          variant="secondary"
+          size="secondary"
+          className="w-[300px]"
+          asChild
+        >
+          {/* TODO: change this to login */}
+          <Link href="/client/sign-up">I am client</Link>
         </Button>
       </div>
     </div>
