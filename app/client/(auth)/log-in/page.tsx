@@ -7,19 +7,20 @@ import Link from "next/link";
 import * as motion from "framer-motion/client";
 import SocialLoginBar from "@/components/SocialLoginBar";
 import { Dispatch, SetStateAction, useState } from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 
-const SignUp = () => {
-  const [signUpContainer, setSignUpContainer] = useState(false);
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+const Login = () => {
+  const [loginContainer, setLoginContainer] = useState(false);
 
   return (
     <div className="">
       {/* TODO: change this href */}
       <SkipBtn href="/" className="absolute top-4 right-4" />
 
-      {signUpContainer ? (
-        <SignUpContainer setSignUpContainer={setSignUpContainer} />
+      {loginContainer ? (
+        <LoginContainer setLoginContainer={setLoginContainer} />
       ) : (
         <motion.div
           initial={{ y: 300, opacity: 0 }}
@@ -30,7 +31,7 @@ const SignUp = () => {
           }}
           className="bg-white rounded-t-[35px] p-4 w-full h-[520px] absolute bottom-0 max-sm:flex max-sm:flex-col items-center gap-y-3"
         >
-          <h1>Sign Up to Fitnesspergram</h1>
+          <h1>Login to Fitnesspergram</h1>
           <p className="text-muted-foreground mb-6">
             the perfect solution to your personal training
           </p>
@@ -44,18 +45,18 @@ const SignUp = () => {
             variant="primary"
             className="w-[300px]"
             size="primary"
-            onClick={() => setSignUpContainer(true)}
+            onClick={() => setLoginContainer(true)}
           >
-            Create Account
+            Log In
           </Button>
 
           <p className="mt-3">
-            Already have an account ?{" "}
+            New Customer ?{" "}
             <Link
-              href="/client/log-in"
+              href="/client/sign-up"
               className="underline underline-offset-2"
             >
-              Log In
+              Sign Up
             </Link>
           </p>
         </motion.div>
@@ -63,7 +64,7 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
+export default Login;
 
 const Divider = ({ className }: { className?: string }) => {
   return (
@@ -75,10 +76,10 @@ const Divider = ({ className }: { className?: string }) => {
   );
 };
 
-const SignUpContainer = ({
-  setSignUpContainer,
+const LoginContainer = ({
+  setLoginContainer,
 }: {
-  setSignUpContainer: Dispatch<SetStateAction<boolean>>;
+  setLoginContainer: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
     <motion.div
@@ -90,7 +91,7 @@ const SignUpContainer = ({
       }}
       className="bg-white rounded-t-[35px] p-4 w-full h-[520px] absolute bottom-0 max-sm:flex max-sm:flex-col items-center gap-y-3"
     >
-      <h1>Sign up to Fitnesspergram</h1>
+      <h1>Login to Fitnesspergram</h1>
       <p className="text-muted-foreground mb-6">
         the perfect solution to your personal training
       </p>
@@ -102,18 +103,14 @@ const SignUpContainer = ({
         <Label htmlFor="password">Password</Label>
         <Input id="password" />
       </div>
-      <div className="w-[300px] flex flex-col gap-y-2">
-        <Label htmlFor="cpassword">Confirm password</Label>
-        <Input id="cpassword" />
-      </div>
       <Button variant="primary" className="w-[300px] mt-3" size="primary">
-        Sign Up
+        Log In
       </Button>
       <Button
         variant="secondary"
         className="w-[300px] mt-3"
         size="secondary"
-        onClick={() => setSignUpContainer(false)}
+        onClick={() => setLoginContainer(false)}
       >
         Back
       </Button>
